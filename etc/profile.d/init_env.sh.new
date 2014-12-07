@@ -1,0 +1,5 @@
+VISUAL='emacs -nw'
+EDITOR='emacs -nw'
+PAGER='most'
+
+export VISUAL EDITOR PAGER
