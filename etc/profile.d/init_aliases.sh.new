@@ -1,0 +1,5 @@
+alias grep='grep --color=auto'
+
+alias bc='bc -lq'
+
+alias emacs='emacs -nw'
