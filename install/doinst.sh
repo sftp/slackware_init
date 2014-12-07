@@ -12,3 +12,5 @@ config() {
 
 mv etc/skel/bashrc.new etc/skel/.bashrc.new
 config etc/skel/.bashrc.new
+
+config etc/profile.d/init_ls.sh.new
