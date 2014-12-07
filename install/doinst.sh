@@ -18,3 +18,4 @@ chmod -x /etc/profile.d/coreutils-dircolors.csh
 config etc/profile.d/init_ls.sh.new
 
 config etc/profile.d/init_aliases.sh.new
+config etc/profile.d/init_prompt.sh.new
