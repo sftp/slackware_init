@@ -2,4 +2,6 @@ VISUAL='emacs -nw'
 EDITOR='emacs -nw'
 PAGER='most'
 
-export VISUAL EDITOR PAGER
+HISTCONTROL='ignoredups'
+
+export VISUAL EDITOR PAGER HISTCONTROL
