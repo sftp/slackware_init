@@ -1,7 +1,8 @@
+TERM='linux'
 VISUAL='emacs -nw'
 EDITOR='emacs -nw'
 PAGER='most'
 
 HISTCONTROL='ignoredups'
 
-export VISUAL EDITOR PAGER HISTCONTROL
+export TERM VISUAL EDITOR PAGER HISTCONTROL
