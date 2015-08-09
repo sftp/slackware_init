@@ -44,3 +44,6 @@ config etc/profile.d/init_env.sh.new
 
 patch_config etc/inputrc.patch
 chmod 644 etc/inputrc.new
+
+ln -s /usr/doc/git-*/contrib/completion/git-completion.bash /etc/bash_completion.d/
+chmod +x /usr/doc/git-*/contrib/completion/git-completion.bash
