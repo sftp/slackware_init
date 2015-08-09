@@ -1,10 +1,30 @@
 #!/bin/sh
 
 if [ "`id -u`" = "0" ]; then
-    PS1="\[\033[01;31m\]\u\[\033[m\]@\h:\w# "
+    prompt="\[\033[01;31m\]\u\[\033[m\]@\h:\w"
+    symb="#"
 else
-    PS1="\[\033[01;32m\]\u\[\033[m\]@\h:\w$ "
+    prompt="\[\033[01;32m\]\u\[\033[m\]@\h:\w"
+    symb="$"
 fi
+
+if [ -r /usr/doc/*/contrib/completion/git-prompt.sh ]; then
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUPSTREAM=auto
+
+    . /usr/doc/*/contrib/completion/git-prompt.sh
+    PROMPT_COMMAND="__git_ps1 \"$prompt\" \"$symb \""
+    
+    export PROMPT_COMMAND
+else
+    PS1="$prompt$symb"
+    export PS1
+fi
+
 PS2='~> '
 
-export PS1 PS2
+unset prompt symb
+export PS2
