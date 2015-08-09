@@ -14,11 +14,18 @@ patch_config() {
     DIR="$(dirname $1)"
 
     PATCH="$(basename $1)"
+
     OLD="$(basename $PATCH .patch)"
+    ORIG="$OLD.orig"
     NEW="$OLD.new"
 
     (
         cd "$DIR"
+
+        if [ -r $ORIG ]; then
+            mv "$ORIG" "$OLD"
+        fi
+       
         patch --strip=1 --output="$NEW" < "$PATCH" &&
             rm "$PATCH"
     )
