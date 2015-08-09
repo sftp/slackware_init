@@ -6,5 +6,5 @@
  "\e[F": end-of-line
 +
 +# ctrl + arrows
-+"\e[5C": forward-word
-+"\e[5D": backward-word
++"\e[1;5C": forward-word
++"\e[1;5D": backward-word
