@@ -10,6 +10,20 @@ config() {
     # Otherwise, we leave the .new copy for the admin to consider...
 }
 
+patch_config() {
+    DIR="$(dirname $1)"
+
+    PATCH="$(basename $1)"
+    OLD="$(basename $PATCH .patch)"
+    NEW="$OLD.new"
+
+    (
+        cd "$DIR"
+        patch --strip=1 --output="$NEW" < "$PATCH" &&
+            rm "$PATCH"
+    )
+}
+
 mv etc/skel/bashrc.new etc/skel/.bashrc.new
 config etc/skel/.bashrc.new
 
@@ -20,3 +34,5 @@ config etc/profile.d/init_ls.sh.new
 config etc/profile.d/init_aliases.sh.new
 config etc/profile.d/init_prompt.sh.new
 config etc/profile.d/init_env.sh.new
+
+patch_config etc/inputrc.patch
