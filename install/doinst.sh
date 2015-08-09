@@ -43,3 +43,4 @@ config etc/profile.d/init_prompt.sh.new
 config etc/profile.d/init_env.sh.new
 
 patch_config etc/inputrc.patch
+chmod 644 etc/inputrc.new
