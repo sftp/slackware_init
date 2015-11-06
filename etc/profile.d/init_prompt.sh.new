@@ -1,11 +1,9 @@
 #!/bin/sh
 
 if [ "`id -u`" = "0" ]; then
-    prompt="\[\033[01;31m\]\u\[\033[m\]@\h:\w"
-    symb="#"
+    prompt='\[\033[01;31m\]\u\[\033[m\]@\h:\w'
 else
-    prompt="\[\033[01;32m\]\u\[\033[m\]@\h:\w"
-    symb="$"
+    prompt='\[\033[01;32m\]\u\[\033[m\]@\h:\w'
 fi
 
 if [ -r /usr/doc/*/contrib/completion/git-prompt.sh ]; then
@@ -16,15 +14,14 @@ if [ -r /usr/doc/*/contrib/completion/git-prompt.sh ]; then
     GIT_PS1_SHOWUPSTREAM=auto
 
     . /usr/doc/*/contrib/completion/git-prompt.sh
-    PROMPT_COMMAND="__git_ps1 \"$prompt\" \"$symb \""
-    
+    PROMPT_COMMAND="__git_ps1 \"$prompt\" '\\$ '"
     export PROMPT_COMMAND
 else
-    PS1="$prompt$symb"
+    PS1='$prompt\$ '
     export PS1
 fi
 
 PS2='~> '
 
-unset prompt symb
+unset prompt
 export PS2
