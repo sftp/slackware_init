@@ -11,7 +11,7 @@ if [ -r /usr/doc/*/contrib/completion/git-prompt.sh ]; then
     GIT_PS1_SHOWCOLORHINTS=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUPSTREAM=auto
+    GIT_PS1_SHOWUPSTREAM='verbose'
 
     . /usr/doc/*/contrib/completion/git-prompt.sh
     PROMPT_COMMAND="__git_ps1 \"$prompt\" '\\$ '"
