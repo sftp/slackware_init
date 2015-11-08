@@ -1,5 +1,7 @@
+alias dmesg='dmesg --color=auto'
 alias grep='grep --color=auto'
 
 alias bc='bc -lq'
+
 
 alias emacs='emacs -nw'
