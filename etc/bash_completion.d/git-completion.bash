@@ -1,1 +1,1 @@
-. /usr/doc/git-2.6.2/contrib/completion/git-completion.bash
+. /usr/doc/git-*/contrib/completion/git-completion.bash
