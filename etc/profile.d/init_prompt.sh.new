@@ -17,7 +17,7 @@ if [ -r /usr/doc/*/contrib/completion/git-prompt.sh ]; then
     PROMPT_COMMAND="__git_ps1 \"$prompt\" '\\$ '"
     export PROMPT_COMMAND
 else
-    PS1='$prompt\$ '
+    PS1="$prompt\\$ "
     export PS1
 fi
 
