@@ -21,4 +21,5 @@ config etc/profile.d/init_aliases.sh.new
 config etc/profile.d/init_prompt.sh.new
 config etc/profile.d/init_env.sh.new
 
+config etc/login.defs.new
 config etc/inputrc.new
