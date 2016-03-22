@@ -5,7 +5,7 @@ set -e
 NAME='slackware_init'
 
 ARCH='noarch'
-VERSION='0.8.8'
+VERSION='0.8.9'
 BUILD=${BUILD:-1sftp}
 
 CWD=`pwd`

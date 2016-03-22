@@ -1,6 +1,6 @@
 # Script based on /etc/profile.d/coreutils-dircolors.sh
 
-OPTIONS="-F -b -h -T 0"
+OPTIONS="-F -b -h -v -T 0"
 COLOR=auto
 LS_OPTIONS="$OPTIONS --color=$COLOR";
 
