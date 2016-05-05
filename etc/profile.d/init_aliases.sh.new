@@ -4,4 +4,4 @@ alias gcc='gcc -fdiagnostics-color=auto'
 
 alias bc='bc -lq'
 
-alias emacs='emacs -nw'
+alias emacs=$(echo /usr/bin/emacs-*-no-x11)

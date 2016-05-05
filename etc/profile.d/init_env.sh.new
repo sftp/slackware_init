@@ -1,5 +1,5 @@
-VISUAL='emacs -nw'
-EDITOR='emacs -nw'
+VISUAL=$(echo /usr/bin/emacs-*-no-x11)
+EDITOR=$VISUAL
 PAGER='most'
 
 HISTCONTROL='ignoredups'
