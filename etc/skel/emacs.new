@@ -1,0 +1,62 @@
+;;;; -*- emacs-lisp -*-
+
+(menu-bar-mode -1)
+(line-number-mode t)
+(column-number-mode t)
+(delete-selection-mode t)
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+(setq-default indent-tabs-mode nil
+	      show-trailing-whitespace t)
+
+(setq auto-save-default nil
+      initial-scratch-message nil
+      inhibit-startup-message t
+      scroll-margin 2
+      scroll-step 1
+      scroll-conservatively 999
+      cperl-indent-level 4
+      cperl-continued-statement-offset 4
+      cperl-invalid-face nil)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(mapc
+ (lambda (pair)
+   (if (eq (cdr pair) 'perl-mode)
+       (setcdr pair 'cperl-mode)))
+ (append auto-mode-alist interpreter-mode-alist))
+
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (setq indent-tabs-mode t)
+	    (c-set-style "linux")))
+
+(set-background-color "black")
+(set-foreground-color "white")
+
+(custom-set-faces
+ '(cperl-array-face ((((class color) (background light)) (:foreground "red" :weight bold))))
+ '(cperl-hash-face ((((class color) (background light)) (:foreground "magenta" :weight bold))))
+ '(custom-variable-tag ((t (:foreground "cyan" :weight bold))))
+ '(font-lock-builtin-face ((((class color) (min-colors 8)) (:foreground "green" :weight bold))))
+ '(font-lock-comment-face ((((class color) (min-colors 8)) (:foreground "red"))))
+ '(font-lock-constant-face ((((class color) (min-colors 8)) (:foreground "yellow" :weight bold))))
+ '(font-lock-function-name-face ((((class color) (min-colors 8)) (:foreground "green" :weight bold))))
+ '(font-lock-keyword-face ((((class color) (min-colors 8)) (:foreground "cyan" :weight bold))))
+ '(font-lock-string-face ((((class color) (min-colors 8)) (:foreground "cyan"))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 8)) (:foreground "yellow" :weight bold))))
+ '(link ((t (:foreground "cyan" :underline t))))
+ '(link-visited ((t (:inherit link :foreground "magenta"))))
+ '(minibuffer-prompt ((t (:foreground "cyan" :weight bold))))
+ '(whitespace-empty ((t (:foreground "red"))))
+ '(whitespace-hspace ((t (:background "red" :foreground "white" :weight bold))))
+ '(whitespace-indentation ((t (:background "red" :foreground "yellow" :weight bold))))
+ '(whitespace-line ((t (:foreground "magenta"))))
+ '(whitespace-newline ((t (:foreground "red" :weight bold))))
+ '(whitespace-space ((t (:background "yellow" :foreground "white" :weight bold))))
+ '(whitespace-space-after-tab ((t (:background "red" :foreground "yellow" :weight bold))))
+ '(whitespace-space-before-tab ((t (:background "red" :foreground "yellow" :weight bold))))
+ '(whitespace-tab ((t (:background "yellow" :foreground "white" :weight bold))))
+ '(whitespace-trailing ((t (:background "red" :foreground "yellow" :weight bold)))))
