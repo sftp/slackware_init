@@ -1,11 +1,13 @@
 ;;;; -*- emacs-lisp -*-
 
 (menu-bar-mode -1)
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+
+(show-paren-mode t)
 (line-number-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
-(if (fboundp 'tool-bar-mode)
-    (tool-bar-mode -1))
 
 (setq-default indent-tabs-mode nil
               show-trailing-whitespace t)
@@ -18,7 +20,8 @@
       scroll-conservatively 999
       cperl-indent-level 4
       cperl-continued-statement-offset 4
-      cperl-invalid-face nil)
+      cperl-invalid-face nil
+      linum-format "%4d \u2502 ")
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -37,8 +40,9 @@
 (set-foreground-color "white")
 
 (custom-set-faces
- '(cperl-array-face ((((class color) (background light)) (:foreground "red" :weight bold))))
- '(cperl-hash-face ((((class color) (background light)) (:foreground "magenta" :weight bold))))
+ '(cperl-array-face ((nil (:foreground "red" :weight bold))))
+ '(cperl-hash-face ((nil (:foreground "magenta" :weight bold))))
+ '(cperl-nonoverridable-face ((((class color) (background dark)) (:foreground "green"))))
  '(custom-variable-tag ((t (:foreground "cyan" :weight bold))))
  '(font-lock-builtin-face ((((class color) (min-colors 8)) (:foreground "green" :weight bold))))
  '(font-lock-comment-face ((((class color) (min-colors 8)) (:foreground "red"))))
@@ -50,6 +54,9 @@
  '(link ((t (:foreground "cyan" :underline t))))
  '(link-visited ((t (:inherit link :foreground "magenta"))))
  '(minibuffer-prompt ((t (:foreground "cyan" :weight bold))))
+ '(shadow ((t (:foreground "yellow"))))
+ '(show-paren-match ((t (:foreground "red" :weight bold))))
+ '(show-paren-mismatch ((t (:background "red" :foreground "yellow" :weight bold))))
  '(whitespace-empty ((t (:foreground "red"))))
  '(whitespace-hspace ((t (:background "red" :foreground "white" :weight bold))))
  '(whitespace-indentation ((t (:background "red" :foreground "yellow" :weight bold))))
