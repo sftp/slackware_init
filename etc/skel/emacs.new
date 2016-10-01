@@ -59,6 +59,7 @@
  '(shadow ((t (:foreground "yellow"))))
  '(show-paren-match ((t (:foreground "red" :weight bold))))
  '(show-paren-mismatch ((t (:background "red" :foreground "yellow" :weight bold))))
+ '(smerge-markers ((t (:foreground "yellow" :weight bold))))
  '(whitespace-empty ((t (:foreground "red"))))
  '(whitespace-hspace ((t (:background "red" :foreground "white" :weight bold))))
  '(whitespace-indentation ((t (:background "red" :foreground "yellow" :weight bold))))
