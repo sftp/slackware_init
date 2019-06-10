@@ -15,6 +15,7 @@
               show-trailing-whitespace t)
 
 (setq auto-save-default nil
+      make-backup-files nil
       initial-scratch-message nil
       inhibit-startup-message t
       scroll-margin 2
@@ -23,9 +24,21 @@
       cperl-indent-level 4
       cperl-continued-statement-offset 4
       cperl-invalid-face nil
-      linum-format "%4d \u2502 ")
+      ediff-split-window-function 'split-window-horizontally
+      large-file-warning-threshold nil)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+(define-key global-map (kbd "RET")
+  'reindent-then-newline-and-indent)
+
+(global-set-key "\C-w" (lambda (arg) (interactive "p")
+                  (if (region-active-p)
+                      (kill-region (point) (mark))
+                    (backward-kill-word arg))))
 
 (mapc
  (lambda (pair)
@@ -53,13 +66,16 @@
  '(font-lock-keyword-face ((((class color) (min-colors 8)) (:foreground "cyan" :weight bold))))
  '(font-lock-string-face ((((class color) (min-colors 8)) (:foreground "cyan"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 8)) (:foreground "yellow" :weight bold))))
+ '(isearch ((t (:background "magenta"))))
+ '(lazy-highlight ((t (:background "blue"))))
  '(link ((t (:foreground "cyan" :underline t))))
  '(link-visited ((t (:inherit link :foreground "magenta"))))
  '(minibuffer-prompt ((t (:foreground "cyan" :weight bold))))
+ '(region ((t (:background "blue"))))
  '(shadow ((t (:foreground "yellow"))))
  '(show-paren-match ((t (:foreground "red" :weight bold))))
  '(show-paren-mismatch ((t (:background "red" :foreground "yellow" :weight bold))))
- '(smerge-markers ((t (:foreground "yellow" :weight bold))))
+ '(smerge-markers ((t (:background "white" :foreground "black"))))
  '(whitespace-empty ((t (:foreground "red"))))
  '(whitespace-hspace ((t (:background "red" :foreground "white" :weight bold))))
  '(whitespace-indentation ((t (:background "red" :foreground "yellow" :weight bold))))
